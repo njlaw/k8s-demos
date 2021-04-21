@@ -1,3 +1,8 @@
 #!/bin/bash
 
-docker buildx build . ubuntu-with-tools
+TAG=ubuntu-with-tools
+
+docker buildx build . ${TAG}
+
+# Multi-arch build
+# docker buildx build --push --platform linux/arm64/v8,linux/amd64 -t {REGISTRY}${TAG} .
